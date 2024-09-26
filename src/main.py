@@ -77,13 +77,14 @@ def main():
         inst['solution'] = solution
         write_solution_to_csv(inst, solution)
 
+    '''
     # try to find solution using MIP
     for inst in all_instance_data:
         instance_size = len(inst['couriers']) + len(inst['deliveries'])
         if instance_size <= 20:
             optimizer = RoutingMIPSolver(couriers=inst['couriers'], deliveries=inst['deliveries'],transit_times=inst['travel_time'])
             solution = optimizer.optimize()
-            write_solution_to_csv(inst, solution, override=True)
+            write_solution_to_csv(inst, solution, override=True)'''
 
 
 
