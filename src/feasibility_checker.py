@@ -2,32 +2,8 @@ import os
 import csv
 import argparse
 
-
-# Define the Courier class
-class Courier:
-  def __init__(self, courier_id, location, capacity):
-    self.courier_id = courier_id
-    self.location = location
-    self.capacity = capacity
-
-  def __repr__(self):
-    return f"Courier(ID={self.courier_id}, Location={self.location}, Capacity={self.capacity})"
-
-
-# Define the Delivery class
-class Delivery:
-  def __init__(self, delivery_id, capacity, pickup_loc, time_window_start,
-      pickup_stacking_id, dropoff_loc):
-    self.delivery_id = delivery_id
-    self.capacity = capacity
-    self.pickup_loc = pickup_loc
-    self.time_window_start = time_window_start
-    self.pickup_stacking_id = pickup_stacking_id
-    self.dropoff_loc = dropoff_loc
-
-  def __repr__(self):
-    return f"Delivery(ID={self.delivery_id}, Capacity={self.capacity}, Pickup Loc={self.pickup_loc}, " \
-           f"Time Window Start={self.time_window_start}, Pickup Stacking Id={self.pickup_stacking_id}, Dropoff Loc={self.dropoff_loc})"
+from src.data_models.courier import Courier
+from src.data_models.delivery import Delivery
 
 
 class Route:
