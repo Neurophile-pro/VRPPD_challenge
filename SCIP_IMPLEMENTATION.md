@@ -22,22 +22,6 @@ Created a complete SCIP-based implementation of the VRP with Pickup and Delivery
 
 ### Helper Scripts
 
-3. **`check_scip_setup.py`**
-   - Verifies pyscipopt installation
-   - Attempts automatic installation if missing
-   - Tests all imports and dependencies
-   - Usage: `python check_scip_setup.py`
-
-4. **`run_solvers.py`**
-   - Unified interface to run either solver
-   - Displays comparison between xpress and SCIP
-   - Usage examples:
-     ```bash
-     python run_solvers.py --compare          # Show comparison
-     python run_solvers.py --scip ./data/    # Run SCIP only
-     python run_solvers.py --both ./data/    # Run both solvers
-     ```
-
 5. **`setup_scip.sh`**
    - Bash script to setup SCIP environment
    - Activates conda environment
@@ -88,7 +72,7 @@ SCIP uses dictionary-based variable access instead of indexed xpress arrays, all
 ### Option 1: Using the setup script
 ```bash
 conda activate VRPPD
-cd /mnt/home2/home/chhavi/10_OptiTech_solutions/Solutions\ 2/coatwork-vrp-challenge/
+cd VRPPD_challenge
 bash setup_scip.sh
 python main_scip.py <path_to_instances>
 ```
@@ -96,14 +80,14 @@ python main_scip.py <path_to_instances>
 ### Option 2: Direct approach
 ```bash
 conda activate VRPPD
-cd /mnt/home2/home/chhavi/10_OptiTech_solutions/Solutions\ 2/coatwork-vrp-challenge/
+cd VRPPD_challenge
 pip install pyscipopt  # if not already installed
 python main_scip.py <path_to_instances>
 ```
 
 ### Option 3: Using the unified runner
 ```bash
-cd /mnt/home2/home/chhavi/10_OptiTech_solutions/Solutions\ 2/coatwork-vrp-challenge/
+cd VRPPD_challenge
 python run_solvers.py --scip <path_to_instances>
 ```
 
@@ -111,7 +95,7 @@ python run_solvers.py --scip <path_to_instances>
 
 To use in your existing tmux session:
 ```bash
-tmux send-keys -t 0 "cd /mnt/home2/home/chhavi/10_OptiTech_solutions/Solutions\\ 2/coatwork-vrp-challenge && conda activate VRPPD && python main_scip.py <instances_path>" ENTER
+tmux send-keys -t session_name "cd VRPPD_challenge && conda activate VRPPD && python main_scip.py <instances_path>" ENTER
 ```
 
 ## Shared Components
@@ -128,7 +112,6 @@ This ensures identical problem formulation and input handling across both solver
 
 After running both solvers, you can compare solutions:
 ```
-solutions/instance_name.csv      ← Xpress results
 solutions/instance_name_scip.csv ← SCIP results
 ```
 
