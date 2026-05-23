@@ -22,14 +22,14 @@ Created a complete SCIP-based implementation of the VRP with Pickup and Delivery
 
 ### Helper Scripts
 
-5. **`setup_scip.sh`**
+3. **`setup_scip.sh`**
    - Bash script to setup SCIP environment
    - Activates conda environment
    - Installs pyscipopt if needed
 
 ### Documentation
 
-6. **`README_SCIP.md`**
+4. **`README.md`**
    - Detailed documentation about SCIP implementation
    - Installation instructions
    - Running guides
