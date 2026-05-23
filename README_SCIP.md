@@ -40,7 +40,7 @@ python main_scip.py <path_to_instances_folder>
 
 Example:
 ```bash
-python main_scip.py ./10_OptiTech_solutions/Solutions\ 2/coatwork-vrp-challenge/
+python main_scip.py ./VRPPD_challenge/
 ```
 
 ### Step 3: Check results
