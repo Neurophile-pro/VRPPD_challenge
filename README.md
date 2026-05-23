@@ -1,1 +1,0 @@
-# coatwork-vrp-challenge

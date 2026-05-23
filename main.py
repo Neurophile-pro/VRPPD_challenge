@@ -42,6 +42,7 @@ def process_all_instances(parent_folder):
 def write_solution_to_csv(inst, solution: dict[Courier, list[Delivery]], override=False):
     mode = "w" if override else "x"
     with open(f"solutions/{inst['instance_name']}.csv", mode) as csv_file:
+        csv_file.write('ID\n')
         if solution is None:
             return
         for courier in solution:
@@ -81,13 +82,14 @@ def main():
     # try to find solution using MIP
     for inst in all_instance_data:
         instance_size = len(inst['couriers']) + len(inst['deliveries'])
-        if instance_size <= 20:
+        if instance_size:
             optimizer = RoutingMIPSolver(couriers=inst['couriers'], deliveries=inst['deliveries'],transit_times=inst['travel_time'])
             solution = optimizer.optimize()
             write_solution_to_csv(inst, solution, override=True)
 
 
-
+import xpress as xp
+xp.init('/workspaces/coatwork-vrp-challenge/xpauth.xpr')
 # Main execution
 if __name__ == "__main__":
     main()

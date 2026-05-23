@@ -187,6 +187,9 @@ class RoutingMIPSolver:
 
     def optimize(self):
         model = self.create_model()
+        model.controls.timelimit = 60       # set time limit, in seconds
+        model.controls.heuremphasis = 2
+        model.controls.heursearcheffort = 4
         model.optimize()
         return self.get_solution(model)
 
